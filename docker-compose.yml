@@ -1,0 +1,17 @@
+mysql:
+    image: mysql
+    volumes_from:
+        - mysql-data
+    environment:
+        MYSQL_ROOT_PASSWORD=takeleave
+        MYSQL_DATABASE=takeleave
+        MYSQL_USER=takeleave
+        MYSQL_PASSWORD=takeleave
+mysql-data:
+    image: mysql
+    volumes:
+        - /var/lib/mysql
+    command: /bin/true
+tera_qa_takeleave:
+    links:
+        - mysql
